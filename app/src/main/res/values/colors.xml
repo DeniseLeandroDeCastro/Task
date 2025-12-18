@@ -2,9 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#95BD0101</color>
     <color name="light_blue">#FF0386FC</color>
     <color name="color_default">#D1D8E0</color>
     <color name="text_login">#5B736F</color>
+    <color name="toolbar">#5B736F</color>
     <color name="bg_edit_text">#E98C6C</color>
     <color name="bg_button_login">#35394B</color>
     <color name="white_background">#95ffffff</color>

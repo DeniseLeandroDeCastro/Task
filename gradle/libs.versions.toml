@@ -3,6 +3,7 @@
 #| Android                                              |
 #|______________________________________________________|
 agp = "8.13.2"
+firebaseBom = "34.7.0"
 kotlin = "2.0.21"
 coreKtx = "1.17.0"
 appcompat = "1.7.1"
@@ -27,6 +28,10 @@ espressoCore = "3.7.0"
 #|______________________________________________________|
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-auth = { module = "com.google.firebase:firebase-auth" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-database = { module = "com.google.firebase:firebase-database" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
