@@ -1,3 +1,7 @@
+# Task
+![Status](https://img.shields.io/badge/status-%F0%9F%9A%A7%20em%20construção-yellow)
+
+
 ## Apresentando o aplicativo
 <p>
 Aplicativo criado com base na playlist do canal do Hellodev.  
