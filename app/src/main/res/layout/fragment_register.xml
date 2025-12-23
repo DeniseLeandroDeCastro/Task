@@ -47,14 +47,6 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <ImageView
-        android:id="@+id/imageRamos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_ramos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
-
-    <ImageView
         android:id="@+id/imageCantoEsquerdo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,6 +75,7 @@
         android:layout_marginTop="52dp"
         android:autofillHints="@string/hint_email_fragment_login"
         android:background="@drawable/bg_edit_text"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:autofillHints="@string/hint_senha_fragment_login"
+        android:inputType="textPassword"
         android:background="@drawable/bg_edit_text"
         android:padding="10dp"
         android:textColor="@color/white"
@@ -124,13 +118,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSenhaRegister"
-        app:layout_constraintVertical_bias="0.268" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSenhaRegister" />
 
     <ProgressBar
         android:id="@+id/progressBarRegister"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginTop="32dp"
         android:indeterminateTint="@color/light_blue"
         android:visibility="invisible"
@@ -139,13 +132,4 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
         tools:visibility="visible" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bottom_1_1"
-        app:layout_constraintBottom_toBottomOf="@+id/imageCantoEsquerdo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageCantoEsquerdo"
-        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
