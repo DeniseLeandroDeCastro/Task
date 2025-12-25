@@ -1,21 +1,16 @@
 package com.denise.castro.task.ui.auth
 
 import android.os.Bundle
-import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.denise.castro.task.R
 import com.denise.castro.task.databinding.FragmentLoginBinding
+import com.denise.castro.task.helper.FirebaseHelper
 import com.denise.castro.task.ui.fragment.BaseFragment
 import com.denise.castro.task.util.clearFields
-import com.denise.castro.task.util.setIcon
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -57,16 +52,18 @@ class LoginFragment : BaseFragment() {
         val email = binding.editTextUserLogin.text.toString().trim()
         val password = binding.editTextPasswordLogin.text.toString().trim()
 
-        when {
-            email.isEmpty() -> showErrorMessage(binding.root, "O e-mail é obrigatório")
-            password.isEmpty() -> showErrorMessage(binding.root, "A senha é obrigatória")
-            password.length < 6 -> showErrorMessage(binding.root, "A senha deve ter no mínimo 6 caracteres")
-            else -> {
-                hideKeyboard()
-                binding.progressBarLogin.isVisible = true
-                loginUser(email, password)
-            }
+        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.editTextUserLogin.error = getString(R.string.invalid_email_register_fragment)
+            return
         }
+        if (password.isEmpty()) {
+            binding.editTextPasswordLogin.error = getString(R.string.empty_password__register)
+            return
+        }
+
+        hideKeyboard()
+        binding.progressBarLogin.isVisible = true
+        loginUser(email, password)
     }
 
     private fun loginUser(email: String, password: String) {
@@ -74,10 +71,12 @@ class LoginFragment : BaseFragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     clearFields(binding.editTextUserLogin, binding.editTextPasswordLogin)
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
                     binding.progressBarLogin.isVisible = false
-                    showErrorMessage(binding.root, "Erro: E-mail ou senha incorretos.")
+
+                    val errorResId = FirebaseHelper.validError(task.exception)
+                    showErrorMessage(binding.root, getString(errorResId))
                 }
             }
     }

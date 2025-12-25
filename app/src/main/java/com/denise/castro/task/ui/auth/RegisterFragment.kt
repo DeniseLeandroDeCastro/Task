@@ -1,19 +1,16 @@
 package com.denise.castro.task.ui.auth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.denise.castro.task.R
 import com.denise.castro.task.databinding.FragmentRegisterBinding
+import com.denise.castro.task.helper.FirebaseHelper
 import com.denise.castro.task.ui.fragment.BaseFragment
 import com.denise.castro.task.util.clearFields
-import com.denise.castro.task.util.setIcon
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -50,16 +47,22 @@ class RegisterFragment : BaseFragment() { // Herda da sua BaseFragment
         val email = binding.editTextEmailRegister.text.toString().trim()
         val password = binding.editTextSenhaRegister.text.toString().trim()
 
-        when {
-            email.isEmpty() -> showErrorMessage(binding.root, "O e-mail é obrigatório")
-            password.isEmpty() -> showErrorMessage(binding.root, "A senha é obrigatória")
-            password.length < 6 -> showErrorMessage(binding.root, "A senha deve ter no mínimo 6 caracteres")
-            else -> {
-                hideKeyboard()
-                binding.progressBarRegister.isVisible = true
-                registerUser(email, password)
-            }
+        if (email.isEmpty()) {
+            binding.editTextEmailRegister.error = getString(R.string.invalid_email_register_fragment)
+            return
         }
+        if (password.isEmpty()) {
+            binding.editTextSenhaRegister.error = getString(R.string.error_generic)
+            return
+        }
+        if (password.length < 6) {
+            binding.editTextSenhaRegister.error = getString(R.string.strong_password_register_fragment)
+            return
+        }
+
+        hideKeyboard()
+        binding.progressBarRegister.isVisible = true
+        registerUser(email, password)
     }
 
     private fun registerUser(email: String, password: String) {
@@ -68,18 +71,11 @@ class RegisterFragment : BaseFragment() { // Herda da sua BaseFragment
                 if (task.isSuccessful) {
                     clearFields(binding.editTextEmailRegister, binding.editTextSenhaRegister)
 
-                    findNavController().navigate(R.id.action_registerFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
                     binding.progressBarRegister.isVisible = false
-
-                    val message = when (task.exception) {
-                        is com.google.firebase.auth.FirebaseAuthUserCollisionException ->
-                            "Este e-mail já está cadastrado."
-                        is com.google.firebase.auth.FirebaseAuthInvalidCredentialsException ->
-                            "E-mail inválido."
-                        else -> "Erro ao criar conta: " + task.exception?.message
-                    }
-                    showErrorMessage(binding.root, message)
+                    val errorResId = FirebaseHelper.validError(task.exception)
+                    showErrorMessage(binding.root, getString(errorResId))
                 }
             }
     }

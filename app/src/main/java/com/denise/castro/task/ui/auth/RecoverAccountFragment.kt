@@ -1,13 +1,13 @@
 package com.denise.castro.task.ui.auth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import com.denise.castro.task.R
 import com.denise.castro.task.databinding.FragmentRecoverAccountBinding
+import com.denise.castro.task.helper.FirebaseHelper
 import com.denise.castro.task.ui.fragment.BaseFragment
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -41,14 +41,14 @@ class RecoverAccountFragment : BaseFragment() {
     private fun validateData() {
         val email = binding.editTextEmailRecoverAccount.text.toString().trim()
 
-        when {
-            email.isEmpty() -> showErrorMessage(binding.root, "O e-mail é obrigatório")
-            else -> {
-                binding.progressBar.isVisible = true
-                hideKeyboard()
-                recoverAccountUser(email)
-            }
+        if (email.isEmpty()) {
+            binding.editTextEmailRecoverAccount.error = getString(R.string.error_generic)
+            return
         }
+
+        binding.progressBar.isVisible = true
+        hideKeyboard()
+        recoverAccountUser(email)
     }
 
     private fun recoverAccountUser(email: String) {
@@ -57,6 +57,8 @@ class RecoverAccountFragment : BaseFragment() {
                 if (task.isSuccessful) {
                     showSuccessMessage(binding.root, "Pronto, acabamos de enviar um link para o seu e-mail.")
                 } else {
+                    val errorResId = FirebaseHelper.validError(task.exception)
+                    showErrorMessage(binding.root, getString(errorResId))
                     binding.progressBar.isVisible = false
                 }
             }
