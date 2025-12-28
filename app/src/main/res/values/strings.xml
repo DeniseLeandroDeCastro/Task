@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Task</string>
+
+    <!-- Generics -->
+
+
+    <!-- Login -->
+    <string name="text_button_login">Login</string>
+    <string name="text_button_loading_state">Aguarde um momento, por favor…</string>
+
+    <!-- Register -->
+
+
+    <!-- Recover Account -->
+
+
+    <!-- Error Firebase Authenticatin -->
+
+
+    <!-- Form Task -->
+
 </resources>
