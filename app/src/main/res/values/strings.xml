@@ -5,8 +5,15 @@
 
 
     <!-- Login -->
-    <string name="text_button_login">Login</string>
+    <string name="text_button_title_login">Login</string>
     <string name="text_button_loading_state">Aguarde um momento, por favor…</string>
+
+
+    <string name="hint_email">seuemail@email.com</string>
+    <string name="text_email">E-mail</string>
+    <string name="text_senha">Senha</string>
+    <string name="text_create_account">Criar conta</string>
+    <string name="text_recover_account">Recuperar conta</string>
 
     <!-- Register -->
 
