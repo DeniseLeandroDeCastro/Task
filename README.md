@@ -17,3 +17,20 @@ Gerenciador de tarefas (quadro kanban), onde é possível criar, ler, atualizar 
 - Tablayout
 - Adapter
 - RecyclerView
+
+## Telas
+### Splash
+<img width="391" height="696" alt="image" src="https://github.com/user-attachments/assets/43154bf7-d904-4b9c-a1d2-3a5e4dfa5a36" />
+
+### Login
+<img width="391" height="696" alt="image" src="https://github.com/user-attachments/assets/afa0cb40-1708-4da1-bad7-2ffa57f90a56" />
+
+### Criar conta
+<img width="391" height="696" alt="image" src="https://github.com/user-attachments/assets/c2fc18ad-7cbc-43df-a534-e7e53b7c1ff9" />
+
+### Recuperar conta
+<img width="391" height="696" alt="image" src="https://github.com/user-attachments/assets/8d677275-28af-466e-bd47-b54fc0703f6c" />
+
+
+
+
