@@ -1,29 +1,19 @@
 <resources>
     <string name="app_name">Task</string>
 
-    <!-- Generics -->
-
-
-    <!-- Login -->
-    <string name="text_button_title_login">Login</string>
-    <string name="text_button_loading_state">Aguarde um momento, por favor…</string>
-
-
+    <!-- Auth / Login -->
+    <string name="text_button_title">Login</string>
+    <string name="text_welcome">Olá! Que bom ter você aqui!</string>
+    <string name="text_button_loading_title">Aguarde um momento, por favor…</string>
     <string name="hint_email">seuemail@email.com</string>
     <string name="text_email">E-mail</string>
     <string name="text_senha">Senha</string>
+    <!-- Auth / Register -->
     <string name="text_create_account">Criar conta</string>
+    <string name="text_welcome_create_account">Criar uma conta</string>
+    <!-- Auth / Recover Account -->
     <string name="text_recover_account">Recuperar conta</string>
-
-    <!-- Register -->
-
-
-    <!-- Recover Account -->
-
-
-    <!-- Error Firebase Authenticatin -->
-
-
-    <!-- Form Task -->
-
+    <string name="btn_recover_account">Enviar</string>
+    <string name="hint_password">********</string>
+    <string name="message_send_link_with_email">Informe um e-mail válido para receber um link de alteração de senha.</string>
 </resources>

@@ -6,10 +6,10 @@
     <color name="light_blue">#FF0386FC</color>
     <color name="color_default">#2854C5</color>
     <color name="text_login">#5B736F</color>
-    <color name="toolbar">#5B736F</color>
-    <color name="bg_edit_text">#FFDECB</color>
+    <color name="bg_edit_text">#FF0386FC</color>
     <color name="bg_button_login">#F97431</color>
     <color name="bg_button_disabled">#747272</color>
     <color name="white_background">#95ffffff</color>
     <color name="background">#F97431</color>
+    <color name="border">#747272</color>
 </resources>
