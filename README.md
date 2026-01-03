@@ -10,6 +10,7 @@ Gerenciador de tarefas (quadro kanban), onde é possível criar, ler, atualizar 
 
 ## Ferramentas
 - Android Studio Otter | 2025.2.1 Patch 1
+- Arquitetura MVVM
 - Firebase Database
 - Firebase Authentication
 - Navigation Component
@@ -30,6 +31,16 @@ Gerenciador de tarefas (quadro kanban), onde é possível criar, ler, atualizar 
 
 ### Recuperar conta
 <img width="391" height="696" alt="image" src="https://github.com/user-attachments/assets/8d677275-28af-466e-bd47-b54fc0703f6c" />
+
+### Créditos
+<p>
+Para a criação do aplicativo, segui os tutoriais a seguir, pois o conteúdo é muito bom e abrange vários recursos que devem ser explorados no Android. Fiz minhas adaptações, substituindo alguns recursos para que ficasse mais moderno e escalável, além de ser melhor para o ciclo de vida.
+</p>
+
+- UILover (design das telas)
+- Hellodev (app Task)
+- Douglas Motta (progress button)
+
 
 
 
