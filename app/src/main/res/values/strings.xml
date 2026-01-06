@@ -16,4 +16,9 @@
     <string name="btn_recover_account">Enviar</string>
     <string name="hint_password">********</string>
     <string name="message_send_link_with_email">Informe um e-mail válido para receber um link de alteração de senha.</string>
+
+    <string name="tab_todo">A Fazer</string>
+    <string name="tab_doing">Fazendo</string>
+    <string name="tab_done">Feitas</string>
+
 </resources>

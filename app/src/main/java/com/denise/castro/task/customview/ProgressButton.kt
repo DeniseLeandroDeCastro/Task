@@ -32,21 +32,18 @@ class ProgressButton @JvmOverloads constructor(
     }
 
     private fun setLayout(attrs: AttributeSet?) {
-        attrs?.let { attributeSet ->
-            val attributes = context.obtainStyledAttributes(
-                attributeSet,
-                R.styleable.ProgressButton
-            )
-            setBackgroundResource(R.drawable.progress_button_background)
-            val titleResId = attributes.getResourceId(R.styleable.ProgressButton_progress_button_title, 0)
-            if (titleResId != 0) {
-                title = context.getString(titleResId)
-            }
+        attrs?.let {
+            val attributes = context.obtainStyledAttributes(it, R.styleable.ProgressButton)
 
-            val loadingTitleResId = attributes.getResourceId(R.styleable.ProgressButton_progress_button_loading_title, 0)
-            if (loadingTitleResId != 0) {
-                loadingTitle = context.getString(loadingTitleResId)
-            }
+            setBackgroundResource(R.drawable.progress_button_background)
+
+            val titleResId =
+                attributes.getResourceId(R.styleable.ProgressButton_progress_button_title, 0)
+            if (titleResId != 0) title = context.getString(titleResId)
+
+            val loadingTitleResId =
+                attributes.getResourceId(R.styleable.ProgressButton_progress_button_loading_title, 0)
+            if (loadingTitleResId != 0) loadingTitle = context.getString(loadingTitleResId)
 
             attributes.recycle()
         }
@@ -54,20 +51,9 @@ class ProgressButton @JvmOverloads constructor(
 
     private fun refreshState() {
         isEnabled = state.isEnabled
-        isClickable = state.isEnabled
-        refreshDrawableState()
-
-        binding.textTitle.run {
-            isEnabled = state.isEnabled
-            isClickable = state.isEnabled
-        }
-
+        binding.textTitle.text =
+            if (state is ProgressButtonState.Loading) loadingTitle else title
         binding.progressButton.visibility = state.progressVisibility
-
-        when(state) {
-            ProgressButtonState.Normal -> binding.textTitle.text = title
-            ProgressButtonState.Loading -> binding.textTitle.text = loadingTitle
-        }
     }
 
     fun setLoading() {
