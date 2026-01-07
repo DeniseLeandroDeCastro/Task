@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.denise.castro.task.R
 import com.denise.castro.task.databinding.FragmentLoginBinding
+import com.denise.castro.task.helper.FirebaseHelper
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -74,7 +75,11 @@ class LoginFragment : Fragment() {
                     findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
                     binding.btnLogin.setNormal()
-                    Snackbar.make(binding.root, "Ocorreu um erro ao fazer o login.", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(
+                        binding.root,
+                        FirebaseHelper.validError(task.exception),
+                        Snackbar.LENGTH_SHORT)
+                        .show()
                 }
             }
     }

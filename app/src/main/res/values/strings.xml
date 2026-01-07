@@ -20,5 +20,14 @@
     <string name="tab_todo">A Fazer</string>
     <string name="tab_doing">Fazendo</string>
     <string name="tab_done">Feitas</string>
+    <string name="text_progress_bar">Carregando tarefas...</string>
+    <string name="content_description_fab">Botão que adiciona tarefas</string>
+
+    <string name="account_not_registered_register_fragment">Nenhuma conta encontrada com este e-mail.</string>
+    <string name="invalid_email_pass_register_fragment">Usuário / Senha inválida.</string>
+    <string name="invalid_password_register_fragment">Usuário / Senha inválida.</string>
+    <string name="email_in_use_register_fragment">Este e-mail já está em uso.</string>
+    <string name="strong_password_register_fragment">A senha deve conter no mínimo 6 caracteres.</string>
+    <string name="error_generic">Ocorreu um erro ao processar a sua solicitação.</string>
 
 </resources>

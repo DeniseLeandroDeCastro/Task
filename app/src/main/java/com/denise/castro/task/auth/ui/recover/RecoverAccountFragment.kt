@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.denise.castro.task.R
 import com.denise.castro.task.databinding.FragmentRecoverAccountBinding
+import com.denise.castro.task.helper.FirebaseHelper
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -69,10 +70,10 @@ class RecoverAccountFragment : Fragment() {
                 } else {
                     binding.edtEmail.text?.clear()
                     Snackbar.make(
-                        requireView(),
-                        "Erro ao tentar enviar o link. Verifique o e-mail e tente novamente.",
-                        Snackbar.LENGTH_LONG
-                    ).show()
+                        binding.root,
+                        FirebaseHelper.validError(task.exception),
+                        Snackbar.LENGTH_SHORT)
+                        .show()
                 }
             }
     }

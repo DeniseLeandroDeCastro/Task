@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.denise.castro.task.R
 import com.denise.castro.task.databinding.FragmentRegisterBinding
+import com.denise.castro.task.helper.FirebaseHelper
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -65,7 +66,11 @@ class RegisterFragment : Fragment() {
                 if (task.isSuccessful) {
                     findNavController().navigate(R.id.action_global_homeFragment)
                 } else {
-                    Snackbar.make(requireView(), "Erro ao cadastrar usuário", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(
+                        binding.root,
+                        FirebaseHelper.validError(task.exception),
+                        Snackbar.LENGTH_SHORT)
+                        .show()
                 }
             }
     }
