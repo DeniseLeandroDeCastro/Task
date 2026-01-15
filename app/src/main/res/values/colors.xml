@@ -12,4 +12,12 @@
     <color name="white_background">#95ffffff</color>
     <color name="background">#F97431</color>
     <color name="border">#747272</color>
+
+    <color name="color_delete">#FF4C3B</color>
+    <color name="color_edit">#03B6FC</color>
+    <color name="color_details">#04D5C1</color>
+
+    <!--Color tasks -->
+    <color name="color_todo">#2854C5</color>
+    <color name="color_doing">#03B6FC</color>
 </resources>

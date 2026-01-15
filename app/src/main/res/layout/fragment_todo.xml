@@ -33,7 +33,7 @@
             android:id="@+id/progressBar"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:indeterminateTint="@color/color_default"/>
+            android:indeterminateTint="@color/white"/>
 
         <TextView
             android:id="@+id/textInfo"
@@ -42,7 +42,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:text="@string/text_progress_bar"
-            android:textColor="@color/color_default"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

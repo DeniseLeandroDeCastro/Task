@@ -28,7 +28,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/btn_arraw_left_orange"
+        android:src="@drawable/btn_arrow_left_orange"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.255"
